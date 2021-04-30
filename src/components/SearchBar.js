@@ -11,7 +11,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <input type="text" name="name" onChange={e => this.props.updateMarketSearchTerm(e.target.value)}/>
+            <input type="text" name="name" onChange={e => this.props.updateMarketSearchTerm(e.target.value.toLowerCase())}/>
         )
     }
 }

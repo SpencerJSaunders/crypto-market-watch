@@ -33,8 +33,14 @@ class CoinList extends Component {
     }
 
     updateNumberOfCoinsToDisplay() {
-        console.log(this.state.displayAmount)
+        let showMoreSpinner = document.getElementById("show-more-spinner")
+        showMoreSpinner.classList.remove('d-none')
+        showMoreSpinner.classList.add('d-inline-block')
         this.props.fetchMarketInfo(10 + this.state.displayAmount)
+        setTimeout(() => {
+            showMoreSpinner.classList.remove('d-inline-block')
+            showMoreSpinner.classList.add('d-none')
+        }, 900)
         this.setState({displayAmount: this.state.displayAmount + 10})
 
     }
@@ -95,7 +101,9 @@ class CoinList extends Component {
                     </div>                             
             </div>
                 {this.renderCoins()}
-                <p style={{padding:"20px"}} onClick={this.updateNumberOfCoinsToDisplay}>Show More</p>
+                <p className='show-more' onClick={this.updateNumberOfCoinsToDisplay}>Show More</p>
+                <Spinner className='d-none' id='show-more-spinner' color="primary" />
+
              </div>
         )
     }

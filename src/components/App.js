@@ -14,7 +14,7 @@ class App extends Component {
             <div>
                 <Container className='pt-5'>
                             <SearchBar className='mt-3'/>
-                            <div style={{backgroundColor: "white", paddingLeft: "20px", paddingRight: "20px"}}>
+                            <div style={{backgroundColor: "white", paddingLeft: "20px", paddingRight: "20px", borderRadius: '25px'}}>
                                 <CoinList/>
                             </div>
                 </Container>

@@ -1,20 +1,49 @@
-
+html,body {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: none;
+}
 
 .coin-row-entry {
     padding: 15px 0;
     border-top: 1px solid lightgrey;
 }
-
+@font-face {
+    font-family: 'TTNorms-Regular';
+    font-style: normal;
+    src: url('../fonts/TTNorms-Regular.ttf') format('truetype'), url('../fonts/TTNorms-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'SFMonoRegular';
+    font-style: normal;
+    src: url('../fonts/SFMonoRegular.ttf') format('truetype'), url('../fonts/SFMonoRegular.woff') format('woff');
+}
+@font-face {
+    font-family: 'TTNorms-Regular';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/TTNorms-Bold.ttf') format('truetype'), url('../fonts/TTNorms-Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'BradleyHandITC';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/Bradley-Hand-ITC.woff") format("woff"), 
+   /* Modern Browsers */
+    url('../fonts/Bradley-Hand-ITC.ttf') format('truetype');
+}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
+    font-family: 'TTNorms-Regular', 'BradleyHandITC', serif;
 }
 
+
 #coin-analysis-container {
-    margin: 30px auto; 
-    border: 2px solid lightgrey;
-    border-radius: 25px;
+    margin: 0px auto 30px auto; 
     padding-top: 20px;
     padding-bottom: 30px;
+    background-color: white;
 }
 
 .go-back-button {
@@ -32,4 +61,44 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .nav-link:hover {
     color: rgb(170, 166, 166) !important
+}
+
+.coingecko-logo {
+    max-width: 30px;
+}
+
+#powered-text {
+    color: white;
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.coin-stats {
+    margin: 40px 0 100px 0;
+
+}
+
+.coin-stats h4{
+    margin-bottom: 30px;
+}   
+.coin-stats h4:last-child{
+    margin-bottom: 0px;
+}   
+
+.show-more {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    color: white;
+    border-radius: 40px;
+    background-color: #008CBA;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.show-more:hover {
+    background-color: #177b9c;
+    cursor: pointer;
 }

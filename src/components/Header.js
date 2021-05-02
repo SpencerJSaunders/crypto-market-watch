@@ -14,6 +14,8 @@ import {
     NavbarText
   } from 'reactstrap';
   import {Link} from 'react-router-dom'
+  import '../css/App.css'
+  import CoinGeckoLogo from '../images/coingecko.png'
 
 
 
@@ -37,6 +39,7 @@ class Header extends React.Component {
             <div>
                 <Navbar color="dark" dark expand="md">
                     <div className='container'>
+                        <i className="fa fa-bitcoin fa-2x mr-2" style={{color: 'white'}}></i>
                         <NavbarBrand href="/">Crypto Market Watch</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
@@ -48,6 +51,12 @@ class Header extends React.Component {
                             </NavItem>
                             </Nav>
                         </Collapse>
+                        <div class='d-none d-md-block'>
+                            <p class='d-inline-block' id='powered-text'>Powered By</p>
+                            <a target='_blank' href='https://coingecko.com'>
+                                <img src={CoinGeckoLogo} className='img-fluid coingecko-logo' alt='Coin Gecko Logo'/>
+                            </a>
+                        </div>
                 </div>
                 </Navbar>
           </div>

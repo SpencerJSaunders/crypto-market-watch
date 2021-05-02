@@ -20,11 +20,11 @@ class Coin extends React.Component {
             const parsedChange = parseFloat(priceChange)
 
             if(parsedChange > 0) {
-                return <p className='pt-2' style={{color: 'green'}}>{parsedChange}%</p>
+                return <p className='pt-2' style={{color: 'green'}}>{parsedChange.toFixed(2)}%</p>
                 
             }
             else {
-                return <p className='pt-2' style={{color: 'red'}}>{parsedChange}%</p>
+                return <p className='pt-2' style={{color: 'red'}}>{parsedChange.toFixed(2)}%</p>
             }
 
 
@@ -38,20 +38,20 @@ class Coin extends React.Component {
                     <div className='coin-row-entry'>
                         <div className='row'>
                             <div className='col-1'>
-                                {this.props.counter}
+                                <p className='pt-1'>{this.props.counter}</p>
                             </div>
-                            <div class='col'>
+                            <div className='col'>
                                 <img className='img-fluid' style={{maxWidth: "40px"}} src={this.props.image} />
                             </div>
-                            <div class='col'>
+                            <div className='col'>
                                 <Link to={linkURLWithParams}>
                                     <p className='pt-lg-2'>{this.props.name}</p>
                                 </Link>
                             </div>
-                            <div class='col'>
+                            <div className='col'>
                                 <p className='pt-lg-2'>${(parseFloat(this.props.currentPrice).toFixed(2))}</p>
                             </div>
-                            <div class='col d-none d-sm-block' style={{wordWrap: 'break-word'}}>
+                            <div className='col d-none d-sm-block' style={{wordWrap: 'break-word'}}>
                                 {this.displayPriceChange(this.props.priceChangePercentage)}
                             </div>
                         </div>

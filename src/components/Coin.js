@@ -38,21 +38,24 @@ class Coin extends React.Component {
                     <div className='coin-row-entry'>
                         <div className='row'>
                             <div className='col-1'>
-                                <p className='pt-1'>{this.props.counter}</p>
+                                <p className='pt-2'>{this.props.counter}</p>
                             </div>
                             <div className='col'>
                                 <img className='img-fluid' style={{maxWidth: "40px"}} src={this.props.image} />
                             </div>
                             <div className='col'>
                                 <Link to={linkURLWithParams}>
-                                    <p className='pt-lg-2'>{this.props.name}</p>
+                                    <p className='pt-2'>{this.props.name}</p>
                                 </Link>
                             </div>
                             <div className='col'>
-                                <p className='pt-lg-2'>${(parseFloat(this.props.currentPrice).toFixed(2))}</p>
+                                <p className='pt-2'>${this.numberWithCommas((parseFloat(this.props.currentPrice).toFixed(2)))}</p>
                             </div>
-                            <div className='col d-none d-sm-block' style={{wordWrap: 'break-word'}}>
+                            <div className='col d-none d-sm-block'>
                                 {this.displayPriceChange(this.props.priceChangePercentage)}
+                            </div>
+                            <div className='col d-none d-lg-block' >
+                                ${this.numberWithCommas(parseFloat(this.props.marketcap).toFixed(2))}
                             </div>
                         </div>
                     </div>

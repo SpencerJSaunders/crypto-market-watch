@@ -39,11 +39,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 
+.coinlist-col-title:hover {
+    cursor: pointer;
+}
+
+.coinlist-col-title {
+    font-weight: bold;
+}
+
 #coin-analysis-container {
-    margin: 0px auto 30px auto; 
+    margin:0 auto; 
     padding-top: 20px;
     padding-bottom: 30px;
     background-color: white;
+}
+
+#value-over-time-section {
+    padding: 40px 0;
+    background-image: linear-gradient( 110.3deg,  rgba(73,93,109,1) 4.3%, rgba(49,55,82,1) 96.7% );
+    color: white;
 }
 
 .go-back-button {
@@ -75,16 +89,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .coin-stats {
-    margin: 40px 0 100px 0;
+    margin-top: 40px;
 
 }
 
-.coin-stats h4{
-    margin-bottom: 30px;
-}   
-.coin-stats h4:last-child{
-    margin-bottom: 0px;
-}   
+
 
 .show-more {
     padding: 15px 30px;
@@ -101,4 +110,43 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .show-more:hover {
     background-color: #177b9c;
     cursor: pointer;
+}
+
+
+#initial-amount-field {
+    width: 30%;
+}
+
+.toast {
+    margin-bottom: 40px !important;
+}
+
+.toast-body {
+    font-size: 18px;
+}
+
+.toast-header {
+    color: black;
+    padding: 10px;
+}
+
+.toast:hover {
+    transition: transform 250ms;
+    transform: translateY(-10px);
+}
+
+.coin-stats .toast:nth-of-type(3) {
+    margin-bottom: 0 !important;
+}
+
+#coin-details-section {
+    padding: 30px 0 40px 0;
+}
+
+
+@media only screen and (max-width: 991px) {
+
+    #initial-amount-field {
+        width: 90%;
+    }
 }

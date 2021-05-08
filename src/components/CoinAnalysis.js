@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import CoinGecko from '../apis/CoinGecko'
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner} from 'reactstrap'
+import { Container, Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner,  InputGroup, InputGroupAddon, InputGroupText, Input, Toast, ToastBody, ToastHeader} from 'reactstrap' 
+
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import '../css/App.css'
-import parse from 'html-react-parser'
 
 class CoinAnalysis extends React.Component {
     constructor(props) {
@@ -21,7 +21,6 @@ class CoinAnalysis extends React.Component {
         this.displayCoinInfo = this.displayCoinInfo.bind(this)
         this.fetchCoin = this.fetchCoin.bind(this)
         this.calculateAmountOverTime = this.calculateAmountOverTime.bind(this)
-        this.toggle = this.toggle.bind(this)
         this.numberWithCommas = this.numberWithCommas.bind(this)
     }
 
@@ -76,7 +75,7 @@ class CoinAnalysis extends React.Component {
     }
 
         
-    toggle() {
+    toggle = () =>{
 
         const modalReverse = !this.state.modal
 
@@ -93,49 +92,71 @@ class CoinAnalysis extends React.Component {
 
         const url =  new URLSearchParams(this.props.location.search);
         const id = url.get('coin')
-        let dateToday = new Date().toDateString()
 
         if(this.state.coin.id === id) {
                 return (
-                    <div class='pt-4'>
+                    <div>
                     <img src={this.state.coin.image.small}/>
                     <h1 style={{verticalAlign: 'middle'}} className='d-inline ml-2'>{this.state.coin.name}</h1>
                     <div className='row coin-stats'>
                             <div className='col-12 col-md mb-4 mb-md-0'>
-                                <h4>Market Cap Ranking: #{this.state.coin.market_cap_rank}</h4>
-                                <h4>Market Cap: ${this.numberWithCommas(this.state.coin.market_data.market_cap.usd)}</h4>
-                                <h4>Current Price: ${this.state.coin.market_data.current_price.usd}</h4>
+                                    <Toast>
+                                        <ToastHeader>
+                                        <h5>Market Cap Ranking:</h5>
+                                    </ToastHeader>
+                                    <ToastBody>
+                                        #{this.state.coin.market_cap_rank}                                    
+                                    </ToastBody>
+                                    </Toast>
+                                    <Toast>
+                                        <ToastHeader>
+                                        <h5>Market Cap:</h5>
+                                    </ToastHeader>
+                                    <ToastBody>
+                                        ${this.numberWithCommas(this.state.coin.market_data.market_cap.usd)}                                    
+                                    </ToastBody>
+                                    </Toast>
+                                    <Toast>
+                                        <ToastHeader>
+                                        <h5>Current Price:</h5>
+                                    </ToastHeader>
+                                    <ToastBody>
+                                        ${this.state.coin.market_data.current_price.usd}                                  
+                                    </ToastBody>
+                                    </Toast>
                             </div>
                             <div className='col-12 col-md'>
-                            <h4>All Time High: ${this.state.coin.market_data.ath.usd}</h4>
-                            <h4>All Time Low: ${this.state.coin.market_data.atl.usd.toFixed(2)}</h4>
-                            <h4>24 Hour Change: {
-                                (this.state.coin.market_data.price_change_24h > 0)
-                                ? <span style={{color: 'green'}}>${this.state.coin.market_data.price_change_24h.toFixed(2)}</span>
-                                : <span style={{color: 'red'}}>${this.state.coin.market_data.price_change_24h.toFixed(2)}</span>
-                            }</h4>
+                            <Toast>
+                                <ToastHeader>
+                                    <h5>All Time High:</h5>
+                                </ToastHeader>
+                                <ToastBody>
+                                    ${this.state.coin.market_data.ath.usd}                           
+                                </ToastBody>
+                            </Toast>
+                            <Toast>
+                                <ToastHeader>
+                                    <h5>All Time Low:</h5>
+                                </ToastHeader>
+                                <ToastBody>
+                                    ${this.state.coin.market_data.atl.usd.toFixed(2)}                                  
+                                </ToastBody>
+                            </Toast>
+
+                            <Toast>
+                                <ToastHeader>
+                                    <h5>24 Hour Change:</h5>
+                                </ToastHeader>
+                            <ToastBody>
+                                    {
+                                    (this.state.coin.market_data.price_change_24h > 0)
+                                    ? <span style={{color: 'green'}}>${this.state.coin.market_data.price_change_24h.toFixed(2)}</span>
+                                    : <span style={{color: 'red'}}>${this.state.coin.market_data.price_change_24h.toFixed(2)}</span>
+                                    }                                    </ToastBody>
+                                    </Toast>
+                        
                             </div>
                         
-                    </div>
-
-                        <h3 className='text-center mb-3'>How much would your {this.state.coin.name} be worth if you initially purchased it on a certain date?</h3>
-                    <p className='mb-3'>Enter an amount of {this.state.coin.name} and the date you purchased it on to see how much it'd be worth today.</p>
-                    <form onSubmit={this.calculateAmountOverTime}>
-                            <p>Amount of $ invested in {this.state.coin.name}:</p>
-                            <input type="text" pattern="[0-9]*" name="name" value={this.state.amountPurchased} onChange={(e) => this.setState({amountPurchased: parseFloat(e.target.value)})}/>
-
-                            <p className='mt-3'>Date Purchased:</p>
-                            <DatePicker id='start' selected={this.state.startDate}  dateFormat="MM/dd/yyyy"
-                            onChange={(date) => this.setState({startDate: date }) }/>
-                            <input className='d-block mt-3' type="submit" value="Submit" />
-                    </form>
-                  
-                    <div>
-                        {
-                            (!this.state.amountOverTime)
-                            ? <div></div>
-                            : <div>Your {this.state.coin.name} would be worth ${this.numberWithCommas(this.state.amountOverTime.toFixed(2))} for today's date of {dateToday}</div>
-                        }
                     </div>
                     </div>
                     
@@ -144,36 +165,87 @@ class CoinAnalysis extends React.Component {
             else {
                 return (
                     <div>
-                        <Spinner color="primary" />
+                        <Spinner />
                     </div>
                 )
             }
      }
 
     render() {
+        let dateToday = new Date().toDateString()
 
         return (
-            <div className='analysis-background'>
-                <div>
-                <Container id='coin-analysis-container'>
-                        <div>
-                            {this.displayCoinInfo()}
-                        </div>
-                        <div>
-                            <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                                <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                                <ModalBody>
-                                Lorem ipsum dolor sit amet,rud exercitation ullamco labo
-                                </ModalBody>
-                                <ModalFooter>
-                                <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                                </ModalFooter>
-                            </Modal>
-                        </div>
-                    </Container>
-                    </div>
+            <div>
+            <div id="coin-details-section">
+              <Container id="coin-analysis-container">{this.displayCoinInfo()}</Container>
             </div>
+            <div id='value-over-time-section'>
+              <Container>
+                <h3 className="text-center mb-3">
+                  How much would your {this.state.coin.name} be worth if you initially
+                  purchased it on a certain date?
+                </h3>
+                <p className="mb-3">
+                  Enter an amount of {this.state.coin.name} and the date you purchased it
+                  on to see how much it'd be worth today.
+                </p>
+                <form onSubmit={this.calculateAmountOverTime}>
+                  <p>Amount of $ invested in {this.state.coin.name}:</p>
+                  <InputGroup id="initial-amount-field">
+                    <InputGroupAddon addonType="prepend">$</InputGroupAddon>
+                    <Input
+                      min="1"
+                      value={parseFloat(this.state.amountPurchased)}
+                      onChange={(e) =>
+                        this.setState({ amountPurchased: parseFloat(e.target.value) })
+                      }
+                      placeholder="Amount"
+                      type="number"
+                      step="1"
+                    />
+                  </InputGroup>
+                  <p className="mt-3">Date Purchased:</p>
+                  <DatePicker
+                    id="start"
+                    selected={this.state.startDate}
+                    dateFormat="MM/dd/yyyy"
+                    onChange={(date) => this.setState({ startDate: date })}
+                  />
+                  <Button className="d-block mt-3" type="submit" value="Submit">
+                    Submit
+                  </Button>
+                </form>
+          
+                <div>
+                  {!this.state.amountOverTime ? (
+                    <div></div>
+                  ) : (
+                    <div>
+                      Your {this.state.coin.name} would be worth $
+                      {this.numberWithCommas(this.state.amountOverTime.toFixed(2))} for
+                      today's date of {dateToday}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>
+                      Enter a date from the past.
+                    </ModalHeader>
+                    <ModalBody>
+                      You picked today's current date of {new Date().toDateString()} Pick
+                      a date from the past.
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button color="primary" onClick={this.toggle}>
+                        Close
+                      </Button>
+                    </ModalFooter>
+                  </Modal>
+                </div>
+              </Container>
+            </div>
+          </div>
         )
     }
 }

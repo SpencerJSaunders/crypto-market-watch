@@ -23,7 +23,6 @@ class SearchBar extends Component {
 }
 
 
-//<input type="text" name="name" onChange={e => this.props.updateMarketSearchTerm(e.target.value.toLowerCase())}/>
 
 
 export default connect(

@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/crypto-market-watch/static/css/main.9c1815ed.chunk.css",
-    "main.js": "/crypto-market-watch/static/js/main.36490fdb.chunk.js",
-    "main.js.map": "/crypto-market-watch/static/js/main.36490fdb.chunk.js.map",
+    "main.js": "/crypto-market-watch/static/js/main.cc75fd18.chunk.js",
+    "main.js.map": "/crypto-market-watch/static/js/main.cc75fd18.chunk.js.map",
     "runtime-main.js": "/crypto-market-watch/static/js/runtime-main.7a4c88ca.js",
     "runtime-main.js.map": "/crypto-market-watch/static/js/runtime-main.7a4c88ca.js.map",
     "static/css/2.d22f252f.chunk.css": "/crypto-market-watch/static/css/2.d22f252f.chunk.css",
-    "static/js/2.ca88e96b.chunk.js": "/crypto-market-watch/static/js/2.ca88e96b.chunk.js",
-    "static/js/2.ca88e96b.chunk.js.map": "/crypto-market-watch/static/js/2.ca88e96b.chunk.js.map",
+    "static/js/2.1188dd44.chunk.js": "/crypto-market-watch/static/js/2.1188dd44.chunk.js",
+    "static/js/2.1188dd44.chunk.js.map": "/crypto-market-watch/static/js/2.1188dd44.chunk.js.map",
     "index.html": "/crypto-market-watch/index.html",
     "static/css/2.d22f252f.chunk.css.map": "/crypto-market-watch/static/css/2.d22f252f.chunk.css.map",
     "static/css/main.9c1815ed.chunk.css.map": "/crypto-market-watch/static/css/main.9c1815ed.chunk.css.map",
-    "static/js/2.ca88e96b.chunk.js.LICENSE.txt": "/crypto-market-watch/static/js/2.ca88e96b.chunk.js.LICENSE.txt",
+    "static/js/2.1188dd44.chunk.js.LICENSE.txt": "/crypto-market-watch/static/js/2.1188dd44.chunk.js.LICENSE.txt",
     "static/media/App.css": "/crypto-market-watch/static/media/TTNorms-Regular.e7a05691.woff",
     "static/media/coingecko.f8569e11.png": "/crypto-market-watch/static/media/coingecko.f8569e11.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7a4c88ca.js",
     "static/css/2.d22f252f.chunk.css",
-    "static/js/2.ca88e96b.chunk.js",
+    "static/js/2.1188dd44.chunk.js",
     "static/css/main.9c1815ed.chunk.css",
-    "static/js/main.36490fdb.chunk.js"
+    "static/js/main.cc75fd18.chunk.js"
   ]
 }

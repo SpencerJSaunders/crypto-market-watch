@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/CryptoMarketWatch/static/css/main.01e8b671.chunk.css",
+    "main.js": "/CryptoMarketWatch/static/js/main.6cc682e6.chunk.js",
+    "main.js.map": "/CryptoMarketWatch/static/js/main.6cc682e6.chunk.js.map",
+    "runtime-main.js": "/CryptoMarketWatch/static/js/runtime-main.ec3d697b.js",
+    "runtime-main.js.map": "/CryptoMarketWatch/static/js/runtime-main.ec3d697b.js.map",
+    "static/css/2.d22f252f.chunk.css": "/CryptoMarketWatch/static/css/2.d22f252f.chunk.css",
+    "static/js/2.ca88e96b.chunk.js": "/CryptoMarketWatch/static/js/2.ca88e96b.chunk.js",
+    "static/js/2.ca88e96b.chunk.js.map": "/CryptoMarketWatch/static/js/2.ca88e96b.chunk.js.map",
+    "index.html": "/CryptoMarketWatch/index.html",
+    "static/css/2.d22f252f.chunk.css.map": "/CryptoMarketWatch/static/css/2.d22f252f.chunk.css.map",
+    "static/css/main.01e8b671.chunk.css.map": "/CryptoMarketWatch/static/css/main.01e8b671.chunk.css.map",
+    "static/js/2.ca88e96b.chunk.js.LICENSE.txt": "/CryptoMarketWatch/static/js/2.ca88e96b.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/CryptoMarketWatch/static/media/TTNorms-Regular.e7a05691.woff",
+    "static/media/coingecko.f8569e11.png": "/CryptoMarketWatch/static/media/coingecko.f8569e11.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec3d697b.js",
+    "static/css/2.d22f252f.chunk.css",
+    "static/js/2.ca88e96b.chunk.js",
+    "static/css/main.01e8b671.chunk.css",
+    "static/js/main.6cc682e6.chunk.js"
+  ]
+}

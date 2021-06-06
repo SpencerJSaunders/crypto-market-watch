@@ -1,7 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import CoinGecko from '../apis/CoinGecko'
-import { Container, Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner,  InputGroup, InputGroupAddon, InputGroupText, Input, Toast, ToastBody, ToastHeader} from 'reactstrap' 
+import { Container, Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner,  InputGroup, InputGroupAddon, InputGroupText, Input, Toast, ToastBody, ToastHeader, Alert} from 'reactstrap' 
 
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
@@ -185,7 +184,7 @@ class CoinAnalysis extends React.Component {
                   How much would your {this.state.coin.name} be worth if you initially
                   purchased it on a certain date?
                 </h3>
-                <p className="mb-3">
+                <p style={{fontSize: '18px'}} className="mb-4 text-center">
                   Enter an amount of {this.state.coin.name} and the date you purchased it
                   on to see how much it'd be worth today.
                 </p>
@@ -211,7 +210,7 @@ class CoinAnalysis extends React.Component {
                     dateFormat="MM/dd/yyyy"
                     onChange={(date) => this.setState({ startDate: date })}
                   />
-                  <Button className="d-block mt-3" type="submit" value="Submit">
+                  <Button color='success' className="d-block mt-3" type="submit" value="Submit">
                     Submit
                   </Button>
                 </form>
@@ -219,12 +218,13 @@ class CoinAnalysis extends React.Component {
                 <div>
                   {!this.state.amountOverTime ? (
                     <div></div>
-                  ) : (
-                    <div>
-                      Your {this.state.coin.name} would be worth $
+                  ) : 
+                  (
+                    <Alert color="success" className='mt-4'>
+                      <h5 className='text-center'>Your {this.state.coin.name} would be worth $
                       {this.numberWithCommas(this.state.amountOverTime.toFixed(2))} for
-                      today's date of {dateToday}
-                    </div>
+                      today's date of {dateToday}</h5>                    
+                      </Alert>
                   )}
                 </div>
                 <div>
@@ -233,7 +233,7 @@ class CoinAnalysis extends React.Component {
                       Enter a date from the past.
                     </ModalHeader>
                     <ModalBody>
-                      You picked today's current date of {new Date().toDateString()} Pick
+                      You picked today's current date of {new Date().toDateString()}. Pick
                       a date from the past.
                     </ModalBody>
                     <ModalFooter>

@@ -195,7 +195,7 @@ setListFilterState(filterType) {
             </div>
                 {this.renderCoins()}
                 <Spinner className='d-none pt-4' id='show-more-spinner' color="primary" />
-                <Button className='mt-4' onClick={this.updateNumberOfCoinsToDisplay} color="primary" size="lg">Show More</Button>{' '}
+                <Button className='mt-4' onClick={this.updateNumberOfCoinsToDisplay} color="primary" size="lg">Load More</Button>{' '}
 
              </div>
         )

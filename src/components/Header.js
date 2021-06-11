@@ -16,7 +16,7 @@ import {
   import {Link} from 'react-router-dom'
   import '../css/App.css'
   import CoinGeckoLogo from '../images/coingecko.png'
-
+  import HeaderLogo from '../images/header-logo.png'
 
 
 class Header extends React.Component {
@@ -36,11 +36,10 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id='header-bar'>
                 <Navbar color="dark" dark expand="md">
                     <div className='container'>
-                        <i className="fa fa-bitcoin fa-2x mr-2" style={{color: 'white'}}></i>
-                        <NavbarBrand href="/">Crypto Market Watch</NavbarBrand>
+                        <img style={{maxWidth: '100px'}} src={HeaderLogo}/>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="mr-auto" navbar>

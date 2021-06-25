@@ -1,6 +1,7 @@
 import React from 'react'
 import CoinGecko from '../apis/CoinGecko'
 import { Container, Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner,  InputGroup, InputGroupAddon, InputGroupText, Input, Toast, ToastBody, ToastHeader, Alert} from 'reactstrap' 
+import Chart from 'react-apexcharts'
 
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
@@ -14,11 +15,23 @@ class CoinAnalysis extends React.Component {
             amountPurchased: '',
             startDate: new Date(),
             amountOverTime: '',
-            modal: false
+            modal: false,
+            options: {
+        
+              xaxis: {
+                categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+              }
+            },
+            series: [
+              {
+                name: "series-1",
+                data: [30, 40, 45, 50, 49, 60, 70, 91]
+              }
+            ]
         }
 
         this.displayCoinInfo = this.displayCoinInfo.bind(this)
-        this.fetchCoin = this.fetchCoin.bind(this)
+        this.fetchCoinData = this.fetchCoinData.bind(this)
         this.calculateAmountOverTime = this.calculateAmountOverTime.bind(this)
         this.numberWithCommas = this.numberWithCommas.bind(this)
     }
@@ -29,15 +42,53 @@ class CoinAnalysis extends React.Component {
         //check if component state for coin doesn't exist
         if(id !== null) {
             //if it doesn't exist then we check to make sure we have a query string parameter for coin id
-            this.fetchCoin(id)   
+            this.fetchCoinData(id)   
         }  
     }
       
 
-    async fetchCoin(id){
+    async fetchCoinData(id){
 
             const response = await CoinGecko.get('/coins/' + id, {})
-            this.setState({coin:response.data})
+            const {data} = await CoinGecko.get(`/coins/${id}/market_chart`, {
+              params: {
+                vs_currency: 'usd',
+                days: '7',
+                interval: 'daily'
+              }
+            })
+            console.log(data)
+
+            let xData = []
+
+            let marketPrices = []
+
+            data.prices.forEach((item) => {
+
+              var xDataDate = new Date(item[0]*1000)
+              var dateString = xDataDate.getDay()
+              console.log(dateString)
+
+              xData.push(dateString)
+              marketPrices.push(item[1].toFixed(2))
+            })
+
+
+
+            this.setState({
+              coin:response.data,
+              options: {
+                xaxis: {
+                  categories: xData
+                }
+              },
+              series: [
+                {
+                  name: 'Last 7 Days',
+                  data: marketPrices
+                }
+              ]
+            })
     }
 
 
@@ -95,6 +146,13 @@ class CoinAnalysis extends React.Component {
         if(this.state.coin.id === id) {
                 return (
                     <div>
+                                <Chart
+                        options={this.state.options}
+                        series={this.state.series}
+                        type="line"
+                        width="100%"
+                        height='500'
+                      />
                     <img src={this.state.coin.image.small}/>
                     <h1 style={{verticalAlign: 'middle'}} className='d-inline ml-2'>{this.state.coin.name}</h1>
                     <div className='row coin-stats'>

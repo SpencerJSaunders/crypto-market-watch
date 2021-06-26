@@ -4,7 +4,7 @@ The Crypto Market Watch application is for tracking the top 250 cryptocurrencies
 
 In the market overview page (the homepage), you can click on certain column titles to sort the list. 
 
-#How the app was developed
+# How the app was developed
 
 I used React, Redux, React Router, Axios, and Reactstrap to develop this application. The data used in this application is pulled from the CoinGecko API. The application pulls from CoinGecko roughly every 30 seconds for up-to-date data.
 

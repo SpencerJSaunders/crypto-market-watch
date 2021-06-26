@@ -6,5 +6,8 @@ In the market overview page (the homepage), you can click on certain column titl
 
 # How the app was developed
 
-I used React, Redux, React Router, Axios, and Reactstrap to develop this application. The data used in this application is pulled from the CoinGecko API. The application pulls from CoinGecko roughly every 30 seconds for up-to-date data.
+I used React, Redux, React Router, Axios, Thunk, and Reactstrap to develop this application. The data used in this application is pulled from the CoinGecko API. The application pulls from CoinGecko roughly every 30 seconds for up-to-date data.
 
+# Website Link
+
+https://spencerjsaunders.github.io/crypto-market-watch
